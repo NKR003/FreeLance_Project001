@@ -1,0 +1,104 @@
+// Slider Start
+.slider {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  left: 0;
+  // background-color: rgba(0, 0, 0, 0.9);
+  transition: all 0.4s ease-in-out;
+}
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+.slide.current {
+  opacity: 1;
+}
+.slide .content {
+  position: absolute;
+  bottom: 70px;
+  left: -600px;
+  opacity: 0;
+  width: 600px;
+  line-height: 1.4;
+  background: linear-gradient(
+    to top,
+    rgba(32, 22, 84, 0.3) 52%,
+    rgba(0, 0, 100, 0)
+  );
+  // background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px 25px;
+}
+.slide.current .content {
+  opacity: 1;
+  transform: translateX(600px);
+  transition: all 0.7s ease-in-out 0.3s;
+}
+.slide:nth-child(1) {
+  background: url(../img/img4.jpg) no-repeat center center/cover;
+}
+.slide:nth-child(2) {
+  background: url(../img/img5.jpg) no-repeat center center/cover;
+}
+.slide:nth-child(3) {
+  background: url(../img/img7.jpg) no-repeat center center/cover;
+}
+.slide:nth-child(4) {
+  background: url(../img/img3.jpg) no-repeat center center/cover;
+}
+.slide:nth-child(5) {
+  background: url(../img/img1.jpg) no-repeat center center/cover;
+}
+
+.buttons button#next {
+  position: absolute;
+  top: 50%;
+  right: 45px;
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.4s ease-in-out;
+  z-index: 10;
+}
+.buttons button#prev {
+  position: absolute;
+  top: 50%;
+  left: 45px;
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.4s ease-in-out;
+  z-index: 10;
+}
+.container.active .buttons button#next,
+.container.active .buttons button#prev {
+  opacity: 0;
+  visibility: hidden;
+}
+.container.active .content {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease-in-out;
+}
+.buttons button {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  cursor: pointer;
+  padding: 13px 15px;
+  border-radius: 50%;
+  color: rgba(0, 0, 0, 0.5);
+  outline: none;
+  transition: all 0.2s ease-in;
+}
+
+.buttons button:hover {
+  border: 2px solid #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  transition: all 0.3s ease-in;
+}

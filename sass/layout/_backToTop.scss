@@ -1,0 +1,39 @@
+/*------------------------------------------------
+    ## Back Top
+------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  color: #fff;
+  background: linear-gradient(to right, #00ffff, #a020f0);
+  text-align: center;
+  line-height: 49px;
+  z-index: 750;
+  font-size: 16px;
+  transition: 0.4s;
+  cursor: pointer;
+  // display: none;
+  animation: backto-top-bounce 4s infinite ease-in-out;
+}
+.back-to-top:hover {
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.6);
+}
+.myBtnBtoT {
+  display: none;
+}
+
+@keyframes backto-top-bounce {
+  0% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}

@@ -1,0 +1,265 @@
+//Nav Bar Start
+.containerAni {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(32, 22, 84, 0.3) 52%,
+    rgba(0, 0, 100, 0)
+  );
+  // background-color: rgba(0, 0, 0, 0.9);
+  overflow-x: hidden;
+  margin-bottom: -10%;
+}
+.menuContainer {
+  position: fixed;
+  height: 3rem;
+  width: 100%;
+  top: 3rem;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2000;
+}
+
+.navbar {
+  position: fixed;
+  top: 3rem;
+  left: 0;
+  width: 100%;
+  z-index: 100000;
+  height: 3rem;
+  transition: all 0.9s ease-in;
+  background: linear-gradient(
+    to bottom,
+    rgba(32, 22, 84, 0.5) 52%,
+    rgba(0, 0, 100, 0.5)
+  );
+  margin-top: 0rem;
+}
+.menu {
+  max-width: 72rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.backDesign1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 3rem;
+  padding: auto 1rem;
+  background-color: #000;
+  // border-radius: 3px;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.logo {
+  transition: all 0.9s ease-in;
+  background-image: linear-gradient(to right, #00ffff, #a020f0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 1;
+}
+.logo span {
+  font-weight: 400;
+}
+.hamburger-menu {
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  visibility: visible;
+}
+.bar {
+  width: 1.9rem;
+  height: 1.5px;
+  border-radius: 3px;
+  background-color: #fff;
+  transition: 0.5s;
+  position: relative;
+  visibility: visible;
+}
+.bar::before,
+.bar::after {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-color: #fff;
+  transition: 0.5s;
+}
+.bar::before {
+  transform: translateY(-9px);
+}
+.bar::after {
+  transform: translateY(9px);
+}
+.container.active .bar {
+  transform: rotate(360deg);
+  background-color: transparent;
+}
+.container.active .bar::before {
+  content: "";
+  transform: translateY(0) rotate(45deg);
+}
+.container.active .bar::after {
+  content: "";
+  transform: translateY(0) rotate(-45deg);
+}
+.container.active .slider {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease-in;
+}
+.container.active .navbar {
+  background: transparent;
+  background-color: transparent;
+  transition: all 0.2s ease-in;
+}
+
+.container.active .linksMain {
+  opacity: 0;
+}
+.container.active .linksMain .menuMain {
+  visibility: hidden;
+}
+.container.active .backDesign1 {
+  background-color: transparent;
+}
+.container.active .logo {
+  transition: all 0.2s ease-in;
+  opacity: 1;
+}
+.container.active .navbar .menu .hamburger-menu {
+  opacity: 1;
+}
+.links {
+  position: absolute;
+  width: 100%;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+ul {
+  list-style: none;
+}
+.linksMain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: opacity 0.5s ease-in 0.2s;
+  opacity: 1;
+}
+
+.linksMain .menuMain {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  visibility: visible;
+  margin-right: 1rem;
+}
+.linksMain .menuMain:hover {
+  // background: linear-gradient(
+  //   to top,
+  //   rgba(32, 22, 84, 0.3) 52%,
+  //   rgba(0, 0, 100, 0)
+  // );
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.links a {
+  text-decoration: none;
+  color: #000;
+  // padding: 0.7rem 0;
+  display: inline-block;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  visibility: hidden;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: hide 0.5s forwards ease;
+}
+.links a:hover {
+  text-decoration: none;
+  text-align: center;
+  background: linear-gradient(
+    to top,
+    rgba(32, 22, 84, 0.3) 52%,
+    rgba(0, 0, 100, 0)
+  );
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: #fff;
+}
+.container.active .links a {
+  animation: appear 0.5s forwards ease var(--i);
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+  }
+}
+.mainHide.hideAll,
+.mainHide2.hideAll,
+.mainHide3.hideAll,
+.mainHide4.hideAll,
+.footerHide.hideAll {
+  display: none;
+}
+
+.scrollDown {
+  visibility: hidden;
+  opacity: 0;
+}
